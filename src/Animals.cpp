@@ -22,31 +22,44 @@ Animals::Animals(string animalType, string animalName, int animalAge) {
 }
 
 Animals::~Animals() {
-    cout << animalAge << " years old " << animalType << " " << animalName << " now destroyed" << endl;
+    cout << getAnimalAge() << " years old " << animalType << " " << animalName << " now destroyed" << endl;
+}
+
+string Animals::getAnimalType() {
+    return animalType;
+}
+
+string Animals::getAnimalName() {
+    return animalName;
+}
+
+int Animals::getAnimalAge() {
+    return animalAge;
 }
 
 void Animals::move() {
-    cout << animalAge << " years old " << animalType << " " << animalName << " is moving" << endl;
+    cout << getAnimalAge() << " years old " << getAnimalType() << " " << getAnimalName() << " is moving" << endl;
 }
 
 string Animals::say() {
-    string speech(animalAge + " years old "+ animalType + " " + animalName + " greeting you!");
-    cout << speech << endl;
+    string speech(" years old "+ getAnimalType() + " " + getAnimalName() + " is greeting you!");
+    cout << getAnimalAge() << speech << endl;
     return speech;
 }
 
 Animals* Animals::makeChild() {
     Animals* ptr = 0;
-    if (animalAge < 4) {
-        cout << animalAge << " years old " << animalType << " " << animalName << " is too young, can't produce children" << endl;
+    if (getAnimalAge() < 3) {
+        cout << getAnimalAge() << " years old " << getAnimalType() << " " << getAnimalName() << " is too young, can't produce children" << endl;
     } else {
-        ptr = new Animals(animalType, animalName + " child", 0);
+        ptr = new Animals(getAnimalType(), getAnimalName() + " child", 0);
     }
     return ptr;
 }
 
 void Animals::die() {
-    cout << animalAge << " years old " << animalType << " " << animalName << " just died!" << endl;
+    cout << getAnimalAge() << " years old " << getAnimalType() << " " << getAnimalName() << " just died!" << endl;
     delete this;
     //this->~Animals();
 }
+

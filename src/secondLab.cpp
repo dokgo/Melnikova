@@ -2,21 +2,23 @@
 // Created by dokgo on 26.04.17.
 //
 
+#include <vector>
 #include "Animals.h"
+#include "SeaAnimals.h"
+
+using std::vector;
 
 int main() {
-    Animals *animal = new Animals("unknown", "animal1", 3);
-    animal->say();
-    animal->move();
-    animal->move();
-    Animals *animal2 = animal->makeChild();
-    if (animal2 != 0){
-        animal2->say();
-        animal2->move();
-        animal2->die();
+    /*vector<Animals *> vector1 = {new SeaAnimals("fish", "joe", 2), new Animals(), new SeaAnimals("star", "patric", 5)};
+
+    for (Animals *a : vector1) {
+        a->say();
+    }*/
+
+    vector<Animals> vec = {SeaAnimals("fish", "joe", 2), Animals(), SeaAnimals("star", "patric", 5)};
+    for (Animals a : vec) {
+        a.say();
+        a.move();
     }
-
-    animal->die();
-
     return 0;
 }

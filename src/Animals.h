@@ -29,6 +29,12 @@ public:
 
     virtual void die();
 
+    virtual string getAnimalName();
+
+    virtual string getAnimalType();
+
+    virtual int getAnimalAge();
+
 };
 
 
